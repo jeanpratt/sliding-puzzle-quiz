@@ -1,0 +1,61 @@
+/********
+
+	Author:		Jean D. Pratt
+	Date:		February 21, 2017
+	Project:	Sliding Puzzle Quiz (Swirl)
+	
+	Table of Contents:
+		1. @Global
+		2. @Gameboard
+		3. @Tiles
+	
+********/
+/********
+
+	@Global
+	
+********/
+*, *:before, *:after {
+  box-sizing: border-box; }
+
+body, html {
+  margin: 0;
+  padding: 0; }
+
+body {
+  background: #FFFFFF;
+  color: #000000;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 20px; }
+
+/********
+
+	@Gameboard
+	
+********/
+figure.sliding-puzzle-figure {
+  border: 1px solid #000000;
+  padding: 40px;
+  margin: 0;
+  text-align: center; }
+  figure.sliding-puzzle-figure figcaption {
+    font-style: italic; }
+
+ul.sliding-puzzle {
+  background: #000000;
+  border-radius: 5px;
+  height: 250px;
+  list-style-type: none;
+  overflow: auto;
+  margin: 0 0 10px;
+  padding: 20px;
+  width: 250px; }
+  ul.sliding-puzzle li.tile {
+    background: #FFFFFF;
+    border: 10px outset #CCCCCC;
+    font-size: 40px;
+    height: 33.33333%;
+    float: left;
+    width: 33.33333%; }
+
+/*# sourceMappingURL=main.css.map */
