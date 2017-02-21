@@ -59,4 +59,4 @@ Since SASS is allowed for this project, I will employ it to expedite the designi
 
 In this process, it's likely that I will have to make an edit to the original design plan. Edits, and when they were implemented, will be recorded here.
 
-*No edits at this time.*
+- *2/21/2017, 15:30* - Creating a puzzle that scales proportionally may require JavaScript
