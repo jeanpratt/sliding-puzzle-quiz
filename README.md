@@ -23,12 +23,7 @@ given by the assignment.
 - The application logic cannot be in the global scope
 - No external front-end libraries / frameworks except where expressly permitted
 
-<<<<<<< HEAD
 From these specifics I can create an initial idea of how to create the game logic: *Use JavaScript to create a function that initializes when the class "sliding puzzle" is on a `<ul>` element.*
-=======
-From these specifics I can create an initial idea of how to create the game logic:
-*Use JavaScript to create a function that initializes when the class "sliding puzzle" is on a <ul> element.*
->>>>>>> f5c774db8e28a0283483846953a30bc752b2c02f
 
 ### Edits
 
