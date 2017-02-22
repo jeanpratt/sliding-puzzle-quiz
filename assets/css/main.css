@@ -33,13 +33,12 @@ body {
 	
 ********/
 figure.sliding-puzzle-figure {
-  border: 1px solid #000000;
   padding: 40px;
   margin: 0; }
   figure.sliding-puzzle-figure figcaption {
     font-style: italic;
     font-size: 4vw;
-    margin-left: 1vw; }
+    margin-left: 3vw; }
     @media screen and (min-width: 1000px) {
       figure.sliding-puzzle-figure figcaption {
         font-size: 3vw; } }
@@ -80,8 +79,11 @@ ul.sliding-puzzle {
     position: relative;
     width: 33.33333%; }
     ul.sliding-puzzle li.tile span {
+      position: absolute;
+      display: block;
+      left: 50%;
       top: 50%;
-      transform: translateY(-50%); }
+      transform: translate(-50%, -50%); }
     @media screen and (min-width: 1000px) {
       ul.sliding-puzzle li.tile {
         border-width: 1vw;

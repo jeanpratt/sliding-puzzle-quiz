@@ -52,15 +52,13 @@ body {
 ********/
 
 figure.sliding-puzzle-figure {
-	border: 1px solid $main--dark;
-	// ^^For development
 	padding: 40px;
 	margin: 0;
 	
 	figcaption { 
 		font-style: italic; 
 		font-size: 4vw;
-		margin-left: 1vw;
+		margin-left: 3vw;
 		
 		@media screen and (min-width: $break--md) { font-size: 3vw; }
 		@media screen and (min-width: $break--lg) { font-size: 2vw; }
@@ -104,8 +102,11 @@ ul.sliding-puzzle {
 		width: $percent--30;
 		
 		span {
+			position:absolute;
+			display:block;
+			left: 50%;
 			top: 50%;
-			transform: translateY(-50%);
+			transform: translate(-50%, -50%);
 		}
 		
 		@media screen and (min-width: $break--md) {

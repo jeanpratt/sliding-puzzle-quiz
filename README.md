@@ -61,3 +61,4 @@ In this process, it's likely that I will have to make an edit to the original de
 
 - *2/21/2017, 15:30* - Creating a puzzle that scales proportionally may require JavaScript
 - *2/21/2017, 17:30* - Found and implemented method to scale game using SCSS/CSS
+- *2/21/2017, 20:10* - Centered text within each tile using SCSS/CSS and JavaScript
