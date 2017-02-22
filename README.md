@@ -62,3 +62,24 @@ In this process, it's likely that I will have to make an edit to the original de
 - *2/21/2017, 15:30* - Creating a puzzle that scales proportionally may require JavaScript
 - *2/21/2017, 17:30* - Found and implemented method to scale game using SCSS/CSS
 - *2/21/2017, 20:10* - Centered text within each tile using SCSS/CSS and JavaScript
+
+---
+
+## Third Goal: Making it work
+
+Once I've created the format for the board, I can then focus on implementing the game's functionality. Although I have a general sense of how the puzzle would work, I've also taken the time to research practices many employ in coding sliding puzzles. Some of the common themes I can therefore build off of when creating my own.
+
+**Task 3:** How do I code it?
+
+1. Add the empty tile through JavaScript
+2. Create an array containing positional information for each tile
+3. Attach positional information to appropriate tile
+4. Create function to update positional information
+5. Create function to find and check where the empty tile is
+6. Create function to swap the empty tile with the clicked tile
+
+### Edits
+
+When creating the gaming logic for the puzzle, it is likely that the planned course of implementation will evolve in the process. Edits, and when they were implemented, will be recorded here.
+
+*No edits at this time.*
