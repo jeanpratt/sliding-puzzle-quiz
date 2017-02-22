@@ -24,6 +24,16 @@ $percent--30: percentage(1/3);
 $break--md: 1000px;
 $break--lg: 1500px;
 
+// Mixins
+
+@mixin user-select($option) {
+	-moz-user-select: $option;
+	-ms-user-select: $option;
+	-webkit-user-select: $option;
+	
+	user-select: $option;
+}
+
 
 /********
 
@@ -95,28 +105,23 @@ ul.sliding-puzzle {
 	li.tile {
 		background: $main--light;
 		border: 2vw outset $gray--light;
-		font-size: 10vw;
+		font-size: 13vw;
 		height: $percent--30;
 		float: left;
-		position: relative;
 		width: $percent--30;
 		
-		span {
-			position:absolute;
-			display:block;
-			left: 50%;
-			top: 50%;
-			transform: translate(-50%, -50%);
-		}
+		// Don't select text
+		@include user-select(none);
+
 		
 		@media screen and (min-width: $break--md) {
 			border-width: 1vw;
-			font-size: 7vw;
+			font-size: 10vw;
 		}
 		
 		@media screen and (min-width: $break--lg) {
 			border-width: 0.75vw;
-			font-size: 4vw;
+			font-size: 6vw;
 		}
 	}
 }

@@ -37,19 +37,8 @@ for (i = 0; i < puzzles.length; i++) {
 	var tiles = puzzles[i].getElementsByClassName('tile'),
 		numberTiles = parseInt(tiles.length) - 1;
 	
-	// For each text node within a tile, wrap the node within a span
-	// Add 'title' attribute for each tile
-	for (j = 0; j < numberTiles; j++) {
-		var tileNumber = tiles[j].firstChild,
-			tileSpan = document.createElement('span');
-		
-		// Append text value to span and replace original child
-		tileSpan.appendChild(document.createTextNode(tileNumber.nodeValue));
-		tiles[j].replaceChild(tileSpan, tileNumber);
-		
-		// Add 'title' attribute
-		tiles[j].dataset.index = j + 1;
-	}
+	// Add 'dataset' attribute for each tile
+	for (j = 0; j < numberTiles; j++) { tiles[j].dataset.index = j + 1; }
 	
 	playGame(puzzleID);
 }
@@ -69,4 +58,7 @@ function playGame(puzzleID) {
 		puzzleTiles.tiles.push(i + 1);
 	}
 	puzzleTiles.tiles.push("blank");
+	
+	// Ignore clicks not on tiles
+	puzzleBoard.addEventListener("click", function handleClick(event) { return });
 }

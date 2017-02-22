@@ -62,6 +62,7 @@ In this process, it's likely that I will have to make an edit to the original de
 - *2/21/2017, 15:30* - Creating a puzzle that scales proportionally may require JavaScript
 - *2/21/2017, 17:30* - Found and implemented method to scale game using SCSS/CSS
 - *2/21/2017, 20:10* - Centered text within each tile using SCSS/CSS and JavaScript
+- *2/22/2017, 10:55* - Previous method of centering text conflicted with game's logic, was changed
 
 ---
 
@@ -81,5 +82,7 @@ Once I've created the format for the board, I can then focus on implementing the
 ### Edits
 
 When creating the gaming logic for the puzzle, it is likely that the planned course of implementation will evolve in the process. Edits, and when they were implemented, will be recorded here.
+
+- *2/22/2017, 10:55* - Previous method of centering text conflicted with game's logic, was changed
 
 *No edits at this time.*

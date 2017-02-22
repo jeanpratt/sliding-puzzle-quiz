@@ -73,24 +73,21 @@ ul.sliding-puzzle {
   ul.sliding-puzzle li.tile {
     background: #FFFFFF;
     border: 2vw outset #CCCCCC;
-    font-size: 10vw;
+    font-size: 13vw;
     height: 33.33333%;
     float: left;
-    position: relative;
-    width: 33.33333%; }
-    ul.sliding-puzzle li.tile span {
-      position: absolute;
-      display: block;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%); }
+    width: 33.33333%;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-user-select: none;
+    user-select: none; }
     @media screen and (min-width: 1000px) {
       ul.sliding-puzzle li.tile {
         border-width: 1vw;
-        font-size: 7vw; } }
+        font-size: 10vw; } }
     @media screen and (min-width: 1500px) {
       ul.sliding-puzzle li.tile {
         border-width: 0.75vw;
-        font-size: 4vw; } }
+        font-size: 6vw; } }
 
 /*# sourceMappingURL=main.css.map */
