@@ -84,5 +84,3 @@ Once I've created the format for the board, I can then focus on implementing the
 When creating the gaming logic for the puzzle, it is likely that the planned course of implementation will evolve in the process. Edits, and when they were implemented, will be recorded here.
 
 - *2/22/2017, 10:55* - Previous method of centering text conflicted with game's logic, was changed
-
-*No edits at this time.*
