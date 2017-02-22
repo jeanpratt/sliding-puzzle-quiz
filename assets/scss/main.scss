@@ -105,6 +105,7 @@ ul.sliding-puzzle {
 	li.tile {
 		background: $main--light;
 		border: 2vw outset $gray--light;
+		cursor: pointer;
 		font-size: 13vw;
 		height: $percent--30;
 		float: left;
@@ -113,6 +114,7 @@ ul.sliding-puzzle {
 		// Don't select text
 		@include user-select(none);
 
+		&.blank { cursor: auto; visibility: hidden; }
 		
 		@media screen and (min-width: $break--md) {
 			border-width: 1vw;

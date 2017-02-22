@@ -73,6 +73,7 @@ ul.sliding-puzzle {
   ul.sliding-puzzle li.tile {
     background: #FFFFFF;
     border: 2vw outset #CCCCCC;
+    cursor: pointer;
     font-size: 13vw;
     height: 33.33333%;
     float: left;
@@ -81,6 +82,9 @@ ul.sliding-puzzle {
     -ms-user-select: none;
     -webkit-user-select: none;
     user-select: none; }
+    ul.sliding-puzzle li.tile.blank {
+      cursor: auto;
+      visibility: hidden; }
     @media screen and (min-width: 1000px) {
       ul.sliding-puzzle li.tile {
         border-width: 1vw;
