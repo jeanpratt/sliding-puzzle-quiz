@@ -25,8 +25,7 @@ body, html {
 body {
   background: #FFFFFF;
   color: #000000;
-  font-family: 'Open Sans', sans-serif;
-  font-size: 20px; }
+  font-family: 'Open Sans', sans-serif; }
 
 /********
 
@@ -36,26 +35,60 @@ body {
 figure.sliding-puzzle-figure {
   border: 1px solid #000000;
   padding: 40px;
-  margin: 0;
-  text-align: center; }
+  margin: 0; }
   figure.sliding-puzzle-figure figcaption {
-    font-style: italic; }
+    font-style: italic;
+    font-size: 4vw;
+    margin-left: 1vw; }
+    @media screen and (min-width: 1000px) {
+      figure.sliding-puzzle-figure figcaption {
+        font-size: 3vw; } }
+    @media screen and (min-width: 1500px) {
+      figure.sliding-puzzle-figure figcaption {
+        font-size: 2vw; } }
 
 ul.sliding-puzzle {
   background: #000000;
-  border-radius: 5px;
-  height: 250px;
+  border-radius: 1.5vw;
+  height: 70vw;
   list-style-type: none;
   overflow: auto;
-  margin: 0 0 10px;
-  padding: 20px;
-  width: 250px; }
+  margin: 0 0 1.5vw;
+  padding: 2.75vw;
+  text-align: center;
+  width: 70vw; }
+  @media screen and (min-width: 1000px) {
+    ul.sliding-puzzle {
+      border-radius: 1vw;
+      height: 50vw;
+      margin-bottom: 1vw;
+      padding: 2vw;
+      width: 50vw; } }
+  @media screen and (min-width: 1500px) {
+    ul.sliding-puzzle {
+      border-radius: 0.75vw;
+      height: 30vw;
+      margin-bottom: 0.75vw;
+      padding: 1vw;
+      width: 30vw; } }
   ul.sliding-puzzle li.tile {
     background: #FFFFFF;
-    border: 10px outset #CCCCCC;
-    font-size: 40px;
+    border: 2vw outset #CCCCCC;
+    font-size: 10vw;
     height: 33.33333%;
     float: left;
+    position: relative;
     width: 33.33333%; }
+    ul.sliding-puzzle li.tile span {
+      top: 50%;
+      transform: translateY(-50%); }
+    @media screen and (min-width: 1000px) {
+      ul.sliding-puzzle li.tile {
+        border-width: 1vw;
+        font-size: 7vw; } }
+    @media screen and (min-width: 1500px) {
+      ul.sliding-puzzle li.tile {
+        border-width: 0.75vw;
+        font-size: 4vw; } }
 
 /*# sourceMappingURL=main.css.map */
