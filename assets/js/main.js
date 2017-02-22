@@ -25,21 +25,9 @@ for (i = 0; i < puzzles.length; i++) {
 	
 	// Set ID of current puzzle
 	puzzleID = "sliding-puzzle-" + (i + 1);
-	puzzles[i].setAttribute("id", puzzleID)
+	puzzles[i].setAttribute("id", puzzleID);
 	
-	// Create blank tile
-	var tileBlank = document.createElement("li");
-	tileBlank.setAttribute("class", "tile");
-	tileBlank.dataset.index = 9;
-	puzzles[i].appendChild(tileBlank);
-	
-	// Select tiles
-	var tiles = puzzles[i].getElementsByClassName('tile'),
-		numberTiles = parseInt(tiles.length) - 1;
-	
-	// Add 'dataset' attribute for each tile
-	for (j = 0; j < numberTiles; j++) { tiles[j].dataset.index = j + 1; }
-	
+	// Set game state for current puzzle
 	playGame(puzzleID);
 }
 
@@ -51,14 +39,65 @@ for (i = 0; i < puzzles.length; i++) {
 ********/
 
 function playGame(puzzleID) {
-	var puzzleBoard = document.querySelector("#" + puzzleID),
-		puzzleTiles = { tiles: [] };
-		
-	for (i = 0; i < 8; i++) {
-		puzzleTiles.tiles.push(i + 1);
-	}
-	puzzleTiles.tiles.push("blank");
+	// Select game board and create tile array
+	var puzzleBoard = document.getElementById(puzzleID),
+		puzzleTiles = { tiles: [1, 2, 3, 4, 5, 6, 7, 8, "B"] };
 	
-	// Ignore clicks not on tiles
-	puzzleBoard.addEventListener("click", function handleClick(event) { return });
+	// Add a listener for when the selected board is clicked
+	puzzleBoard.addEventListener("click", function handleClick(event) { 
+		
+		// Get the index of the currently clicked tile
+		var index = parseInt(event.target.dataset.index),
+			blank = moveBlank();
+		
+		// Returns positional information of where the blank should go
+		function moveBlank() {
+			var up = index - 3, down = index + 3, left = index - 1, right = index + 1;
+		
+			if (index >= 3 && blankCheck(up)) { return up; }
+			if (index < 6 && blankCheck(down)) { return down; }
+			if ((index % 3) > 0 && blankCheck(left)) { return left; }
+			if ((index % 3) < 2 && blankCheck(right)) { return right; }
+		}
+		
+		// Check to see if the blank tile is selected
+		function blankCheck(index) { return puzzleTiles.tiles[index] == "B"; }
+		
+		// Swaps the blank tile with a number tile
+		function swapTile(index1, index2) {
+			var position = puzzleTiles.tiles[index1];
+			
+			puzzleTiles.tiles[index1] = puzzleTiles.tiles[index2];
+			puzzleTiles.tiles[index2] = position;
+			
+			console.log(puzzleTiles.tiles[index1], puzzleTiles.tiles[index2]);
+		}
+		
+		// Ignore clicks not on tiles
+		if (event.target.className.indexOf("tile") == -1) { return; }
+		// Ignore clicks on blank tile
+		else if ( blankCheck(index) ) { return; }
+		// Ignore invalid clicks
+		else if ( blank == null ) { return; }
+		
+		// If passes checks, swap tile
+		swapTile(index, blank);
+		// Once tile is swapped, set the board
+		setBoard(puzzleBoard, puzzleTiles);
+	});
+	
+	// Sets the board on load and resets when tile is swapped
+	function setBoard(thisBoard, thisTile) {
+		var newTile = "";
+		newTile = thisTile.tiles.map(setTile).join("");
+		thisBoard.innerHTML = newTile;
+		
+		function setTile(id, index) { 
+			if (id == "B") { return "<li class='tile blank' data-index='" + index + "'>" + id + "</div>"; }
+			else { return "<li class='tile' data-index='" + index + "'>" + id + "</div>"; }
+		}
+	}
+	
+	// Set the board on page load
+	setBoard(puzzleBoard, puzzleTiles);
 }

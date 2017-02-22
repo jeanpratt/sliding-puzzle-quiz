@@ -84,3 +84,4 @@ Once I've created the format for the board, I can then focus on implementing the
 When creating the gaming logic for the puzzle, it is likely that the planned course of implementation will evolve in the process. Edits, and when they were implemented, will be recorded here.
 
 - *2/22/2017, 10:55* - Previous method of centering text conflicted with game's logic, was changed
+- *2/22/2017, 12:42* - The game is rendered on page load, so creating the empty tile isn't needed outside the game logic
