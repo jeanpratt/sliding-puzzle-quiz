@@ -123,3 +123,5 @@ Unlike the previous "Edit" sections, this one will also record when each mini-go
 - *2/22/2017, 23:37* - Fixed bug affecting how the game rendered
 - *2/23/2017, 00:20* - Added light interactive styling to buttons
 - *2/23/2017, 00:21* - **Mini-goal Complete:** 15-tile puzzle
+- *2/23/2017, 02:16* - Shown puzzle can now be shuffled by entering `playGame('sliding-puzzle-1', 3, true);` into the console
+- *2/23/2017, 02:16* - **Mini-goal Complete:** Shuffle mechanic

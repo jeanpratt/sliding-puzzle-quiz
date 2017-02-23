@@ -23,7 +23,7 @@ function createButton(newButton, newText, puzzleID, puzzleSize) {
 	newText = document.createTextNode(newText);
 	
 	newButton.appendChild(newText);
-	newButton.addEventListener("click", function() { playGame(puzzleID, puzzleSize); });
+	newButton.addEventListener("click", function() { playGame(puzzleID, puzzleSize, false); });
 	
 	return newButton;
 }
@@ -35,43 +35,45 @@ function createButton(newButton, newText, puzzleID, puzzleSize) {
 	
 ********/
 
-// Get puzzles
-var puzzles = document.getElementsByClassName('sliding-puzzle');
+function setGame() {
+	// Get puzzles
+	var puzzles = document.getElementsByClassName('sliding-puzzle');
 
-// In case there are multiple puzzles
-for (var i = 0; i < puzzles.length; i++) {
-	
-	// Set ID of current puzzle
-	var puzzleID = "sliding-puzzle-" + (i + 1);
-	puzzles[i].setAttribute("id", puzzleID);
-	
-	// Construct option bar
-	var optionBar = document.createElement("div");
-	optionBar.className = "sliding-puzzle-options";
+	// In case there are multiple puzzles
+	for (var i = 0; i < puzzles.length; i++) {
+		
+		// Set ID of current puzzle
+		var puzzleID = "sliding-puzzle-" + (i + 1);
+		puzzles[i].setAttribute("id", puzzleID);
+		
+		// Construct option bar
+		var optionBar = document.createElement("div");
+		optionBar.className = "sliding-puzzle-options";
 
-	// Add an option bar after each puzzle
-	puzzles[i].parentNode.insertBefore(optionBar, puzzles[i].nextSibling);
-	
-	// Set initial game state for current puzzle
-	playGame(puzzleID, 3);
-}
+		// Add an option bar after each puzzle
+		puzzles[i].parentNode.insertBefore(optionBar, puzzles[i].nextSibling);
+		
+		// Set initial game state for current puzzle
+		playGame(puzzleID, 3, false);
+	}
 
-// Get option bars
-var optionBars = document.getElementsByClassName("sliding-puzzle-options");
+	// Get option bars
+	var optionBars = document.getElementsByClassName("sliding-puzzle-options");
 
-// Add buttons to chose format
-for (var i = 0; i < optionBars.length; i++) {
-	
-	// Select puzzle for option bar
-	var siblingID = optionBars[i].previousSibling.id;
-	
-	// Create buttons
-	var button3x3 = createButton(button3x3, "Play 3x3 Format", siblingID, 3),
-		button4x4 = createButton(button4x4, "Play 4x4 Format", siblingID, 4);
-	
-	// Add to option bar
-	optionBars[i].appendChild(button3x3);
-	optionBars[i].appendChild(button4x4);
+	// Add buttons to chose format
+	for (var i = 0; i < optionBars.length; i++) {
+		
+		// Select puzzle for option bar
+		var siblingID = optionBars[i].previousSibling.id;
+		
+		// Create buttons
+		var button3x3 = createButton(button3x3, "Play 3x3 Format", siblingID, 3),
+			button4x4 = createButton(button4x4, "Play 4x4 Format", siblingID, 4);
+		
+		// Add to option bar
+		optionBars[i].appendChild(button3x3);
+		optionBars[i].appendChild(button4x4);
+	}
 }
 
 
@@ -81,7 +83,7 @@ for (var i = 0; i < optionBars.length; i++) {
 	
 ********/
 
-function playGame(puzzleID, puzzleSize) {
+function playGame(puzzleID, puzzleSize, scramble) {
 	
 	// Select game board
 	var puzzleBoard = document.getElementById(puzzleID);
@@ -97,12 +99,24 @@ function playGame(puzzleID, puzzleSize) {
 	// Update puzzleBoard classes
 	puzzleBoard.className = 'sliding-puzzle ' + boardType;
 	
+	// For console only - scramble tiles
+	if (scramble) { scrambleIt(puzzle.tiles); }
+	
+	function scrambleIt(tiles) {
+		for (var i = tiles.length - 1; i > 0; i--) {
+			var newIndex = Math.floor(Math.random() * (i + 1)),
+				currentIndex = tiles[i]; 
+				tiles[i] = tiles[newIndex]; 
+				tiles[newIndex] = currentIndex;
+		}
+		return tiles;
+	}
+	
 	// Add a listener for when the selected board is clicked
 	puzzleBoard.addEventListener("click", function handleClick(event) { 
 		
 		// Get the index of the currently clicked tile
 		var index = parseInt(event.target.dataset.index);
-		
 		// Ignore clicks not on tiles
 		if (event.target.className.indexOf("tile") == -1) { return; }
 		
@@ -117,7 +131,7 @@ function playGame(puzzleID, puzzleSize) {
 			
 			// Start checking where blank tile is
 			var blank = move();
-			if ( blank === null ) { return; }
+			if ( blank == null ) { return; }
 			
 			// If passes checks, swap tile
 			swapTile(index, blank);
@@ -165,3 +179,5 @@ function playGame(puzzleID, puzzleSize) {
 	// Set the board on page load
 	setBoard(puzzleBoard, puzzle);
 }
+
+setGame();
