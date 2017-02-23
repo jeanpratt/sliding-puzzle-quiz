@@ -29,11 +29,11 @@ function createButton(newButton, newText) {
 
 /********
 
-	@Game Board
+	@Game Features
 	
 ********/
 
-// Get puzzle
+// Get puzzles
 var puzzles = document.getElementsByClassName('sliding-puzzle');
 
 // In case there are multiple puzzles
@@ -43,8 +43,32 @@ for (i = 0; i < puzzles.length; i++) {
 	puzzleID = "sliding-puzzle-" + (i + 1);
 	puzzles[i].setAttribute("id", puzzleID);
 	
-	// Set game state for current puzzle
+	// Construct option bar
+	var optionBar = document.createElement("div");
+	optionBar.className = "sliding-puzzle-options";
+
+	// Add an option bar after each puzzle
+	puzzles[i].parentNode.insertBefore(optionBar, puzzles[i].nextSibling);
+	
+	// Set initial game state for current puzzle
 	playGame(puzzleID);
+}
+
+// Get option bars
+var optionBars = document.getElementsByClassName("sliding-puzzle-options");
+
+// Add buttons to chose format
+for (i = 0; i < optionBars.length; i++) {
+	
+	// Select puzzle for option bar
+	var siblingID = optionBars[i].previousSibling.id;
+	// Create buttons
+	var button3x3 = createButton(button3x3, "Play 3x3 Format"),
+		button4x4 = createButton(button4x4, "Play 4x4 Format");
+	
+	// Add to option bar
+	optionBars[i].appendChild(button3x3);
+	optionBars[i].appendChild(button4x4);
 }
 
 
