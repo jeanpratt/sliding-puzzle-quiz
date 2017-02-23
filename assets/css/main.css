@@ -37,8 +37,8 @@ figure.sliding-puzzle-figure {
   margin: 0; }
   figure.sliding-puzzle-figure figcaption {
     font-style: italic;
-    font-size: 4vw;
-    margin-left: 3vw; }
+    font-size: 6vw;
+    margin-left: 10vw; }
     @media screen and (min-width: 1000px) {
       figure.sliding-puzzle-figure figcaption {
         font-size: 3vw; } }
@@ -72,7 +72,9 @@ ul.sliding-puzzle {
       width: 30vw; } }
   ul.sliding-puzzle li.tile {
     background: #FFFFFF;
-    border: 2vw outset #CCCCCC;
+    border: 2vw solid #CCCCCC;
+    border-right-color: #787878;
+    border-bottom-color: #787878;
     cursor: pointer;
     font-size: 13vw;
     height: 33.33333%;

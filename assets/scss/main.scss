@@ -67,8 +67,8 @@ figure.sliding-puzzle-figure {
 	
 	figcaption { 
 		font-style: italic; 
-		font-size: 4vw;
-		margin-left: 3vw;
+		font-size: 6vw;
+		margin-left: 10vw;
 		
 		@media screen and (min-width: $break--md) { font-size: 3vw; }
 		@media screen and (min-width: $break--lg) { font-size: 2vw; }
@@ -104,7 +104,9 @@ ul.sliding-puzzle {
 	
 	li.tile {
 		background: $main--light;
-		border: 2vw outset $gray--light;
+		border: 2vw solid $gray--light;
+		border-right-color: $gray--dark;
+		border-bottom-color: $gray--dark;
 		cursor: pointer;
 		font-size: 13vw;
 		height: $percent--30;
