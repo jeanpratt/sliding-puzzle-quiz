@@ -94,6 +94,21 @@ Although optional, it was strongly advised to complete some of the "extra point"
 
 **Task 4:** Get that 'A'
 
-1. ~~Use Sass or SCSS~~
-2. Expose a way to shuffle or disorder the tiles via the console.
-3. Make the same puzzle work for 15 tiles using the same application logic.
+* ~~Use Sass or SCSS~~
+* Make the same puzzle work for 15 tiles using the same application logic.
+* Expose a way to shuffle or disorder the tiles via the console.
+
+First, I'll make my game be more versatile - players will be able to choose either a 3x3 or 4x4 format for playing the puzzle. When I created the game's logic, it was done in a way that allowed for the ability to create different formats. Thus, with a bit of DOM manipulation and minor code editing, I can achieve this goal.
+
+1. Create a new branch to test the new feature
+2. Code necessary utility functions for DOM manipulation
+3. Dynamically add an 'options' bar for players to choose a game mode
+4. Build two simple objects for separate game formats
+5. Replace hard-coded dimensions for the puzzle-board with an object parameter
+6. Incorporate SCSS changes for adapting to either format
+
+### Edits
+
+Unlike the previous "Edit" sections, this one will also record when each mini-goal was completed.
+
+*No edits at this time.*
