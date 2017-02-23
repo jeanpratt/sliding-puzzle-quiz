@@ -111,4 +111,4 @@ First, I'll make my game be more versatile - players will be able to choose eith
 
 Unlike the previous "Edit" sections, this one will also record when each mini-goal was completed.
 
-*No edits at this time.*
+- *2/22/2017, 21:10* - Created buttons will have event listeners attached to them

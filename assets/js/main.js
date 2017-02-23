@@ -23,7 +23,7 @@ function createButton(newButton, newText) {
 	newText = document.createTextNode(newText);
 	newButton.appendChild(newText);
 	
-	return newButton
+	return newButton;
 }
 
 
@@ -51,7 +51,7 @@ for (i = 0; i < puzzles.length; i++) {
 	puzzles[i].parentNode.insertBefore(optionBar, puzzles[i].nextSibling);
 	
 	// Set initial game state for current puzzle
-	playGame(puzzleID);
+	playGame(puzzleID, 3);
 }
 
 // Get option bars
@@ -65,6 +65,10 @@ for (i = 0; i < optionBars.length; i++) {
 	// Create buttons
 	var button3x3 = createButton(button3x3, "Play 3x3 Format"),
 		button4x4 = createButton(button4x4, "Play 4x4 Format");
+		
+	// Add event listeners
+	button3x3.addEventListener('click', function() { playGame(siblingID, 3); });
+	button4x4.addEventListener('click', function() { playGame(siblingID, 4); });
 	
 	// Add to option bar
 	optionBars[i].appendChild(button3x3);
@@ -78,15 +82,15 @@ for (i = 0; i < optionBars.length; i++) {
 	
 ********/
 
-function playGame(puzzleID) {
+function playGame(puzzleID, puzzleSize) {
 	
 	// Select game board
 	var puzzleBoard = document.getElementById(puzzleID);
 	
-	// Create puzzle types
+	// Create puzzle types and generic puzzle variable
 	var puzzle3x3 = { size: 3, tiles: [1, 2, 3, 4, 5, 6, 7, 8, "B"] },
 		puzzle4x4 = { size: 3, tiles: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, "B"] },
-		puzzle = puzzle3x3;
+		puzzle = (puzzleSize == 3) ? puzzle3x3 : puzzle4x4;
 	
 	// Add a listener for when the selected board is clicked
 	puzzleBoard.addEventListener("click", function handleClick(event) { 
