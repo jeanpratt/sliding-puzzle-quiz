@@ -5,10 +5,26 @@
 	Project:	Sliding Puzzle Quiz (Swirl)
 	
 	Table of Contents:
-		1. @Game Board
-		2. @Game Logic
+		1. @Utility
+		2. @Game Features
+		3. @Game Logic
 	
 ********/
+
+
+/********
+
+	@Utility
+	
+********/
+
+function createButton(newButton, newText) {
+	newButton = document.createElement("BUTTON");
+	newText = document.createTextNode(newText);
+	newButton.appendChild(newText);
+	
+	return newButton
+}
 
 
 /********
