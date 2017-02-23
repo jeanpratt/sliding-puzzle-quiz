@@ -102,41 +102,53 @@ function playGame(puzzleID, puzzleSize) {
 	puzzleBoard.addEventListener("click", function handleClick(event) { 
 		
 		// Get the index of the currently clicked tile
-		var index = parseInt(event.target.dataset.index),
-			blank = moveBlank();
-		
-		// Returns positional information of where the blank should go
-		function moveBlank() {
-			var up = index - puzzle.size, down = index + puzzle.size, left = index - 1, right = index + 1;
-		
-			if (index >= puzzle.size && blankCheck(up)) { return up; }
-			if (index < ((puzzle.size - 1) * puzzle.size) && blankCheck(down)) { return down; }
-			if ((index % puzzle.size) > 0 && blankCheck(left)) { return left; }
-			if ((index % puzzle.size) < 2 && blankCheck(right)) { return right; }
-		}
-		
-		// Check to see if the blank tile is selected
-		function blankCheck(index) { return puzzle.tiles[index] == "B"; }
-		
-		// Swaps the blank tile with a number tile
-		function swapTile(index1, index2) {
-			var position = puzzle.tiles[index1];
-			
-			puzzle.tiles[index1] = puzzle.tiles[index2];
-			puzzle.tiles[index2] = position;
-		}
+		var index = parseInt(event.target.dataset.index);
 		
 		// Ignore clicks not on tiles
 		if (event.target.className.indexOf("tile") == -1) { return; }
-		// Ignore clicks on blank tile
-		else if ( blankCheck(index) ) { return; }
-		// Ignore invalid clicks
-		else if ( blank == null ) { return; }
 		
-		// If passes checks, swap tile
-		swapTile(index, blank);
+		// If the click is on a tile, start moving process
+		moveBlank();
+		
+		// Returns positional information of where the blank should go
+		function moveBlank() {
+			
+			// Ignore clicks on blank tile
+			if ( blankCheck(index) ) { return; }
+			
+			// Start checking where blank tile is
+			var blank = move();
+			if ( blank == null ) { return; }
+			
+			// If passes checks, swap tile
+			swapTile(index, blank);
+			
+			function move() {
+				var up = index - puzzle.size, down = index + puzzle.size, left = index - 1, right = index + 1;
+		
+				if (index >= puzzle.size && blankCheck(up)) { return up; }
+				if (index < ((puzzle.size - 1) * puzzle.size) && blankCheck(down)) { return down; }
+				if ((index % puzzle.size) > 0 && blankCheck(left)) { return left; }
+				if ((index % puzzle.size) < puzzle.size && blankCheck(right)) { return right; }
+			}
+			
+			// Check to see if the blank tile is selected
+			function blankCheck(index) { return puzzle.tiles[index] == "B"; }
+			
+			// Swaps the blank tile with a number tile
+			function swapTile(index1, index2) {
+				var position = puzzle.tiles[index1];
+				
+				puzzle.tiles[index1] = puzzle.tiles[index2];
+				puzzle.tiles[index2] = position;
+			}
+		}
+		
 		// Once tile is swapped, set the board
 		setBoard(puzzleBoard, puzzle);
+		
+		// Stop event from bubbling
+		event.stopPropagation();
 	});
 	
 	// Sets the board on load and resets when tile is swapped
