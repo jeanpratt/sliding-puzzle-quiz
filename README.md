@@ -85,3 +85,15 @@ When creating the gaming logic for the puzzle, it is likely that the planned cou
 
 - *2/22/2017, 10:55* - Previous method of centering text conflicted with game's logic, was changed
 - *2/22/2017, 12:42* - The game is rendered on page load, so creating the empty tile isn't needed outside the game logic
+
+---
+
+## Fourth Goal: Extra Credit
+
+Although optional, it was strongly advised to complete some of the "extra point" items. I've always been a teacher's pet, so I enjoy any chance to earn a better grade. :-) One of the items included using SCSS, which I did while working on the project itself. However, especially on topics I haven't had a lot of experience with (such as making games), I usually focus first on getting the requirements down. This gives me a better starting point for extra credit items.
+
+**Task 4:** Get that 'A'
+
+1. ~~Use Sass or SCSS~~
+2. Expose a way to shuffle or disorder the tiles via the console.
+3. Make the same puzzle work for 15 tiles using the same application logic.
