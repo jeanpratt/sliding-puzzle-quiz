@@ -100,12 +100,20 @@ Although optional, it was strongly advised to complete some of the "extra point"
 
 First, I'll make my game be more versatile - players will be able to choose either a 3x3 or 4x4 format for playing the puzzle. When I created the game's logic, it was done in a way that allowed for the ability to create different formats. Thus, with a bit of DOM manipulation and minor code editing, I can achieve this goal.
 
-1. Create a new branch to test the new feature
+1. Create a new branch to house the different game formats
 2. Code necessary utility functions for DOM manipulation
 3. Dynamically add an 'options' bar for players to choose a game mode
 4. Build two simple objects for separate game formats
 5. Replace hard-coded dimensions for the puzzle-board with an object parameter
 6. Incorporate SCSS changes for adapting to either format
+
+After creating different formats for the puzzle, I'll now add a way to scramble the order of 
+the tiles through the console. Once the function for scrambling has been completed, a parameter to `playGame();` will allow a user to do so.
+
+1. Create a new branch to house the scramble function
+2. Build scramble function
+3. Add parameter to `playGame();`
+4. Incoporate parameter upon page load and button call
 
 ### Edits
 
