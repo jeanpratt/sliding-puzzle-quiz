@@ -34,6 +34,20 @@ $break--lg: 1500px;
 	user-select: $option;
 }
 
+@mixin border-normal() {
+	border-color: $gray--light;
+	border-style: solid;
+	border-right-color: $gray--dark;
+	border-bottom-color: $gray--dark;
+}
+
+@mixin border-reverse() {
+	border-color: $gray--dark;
+	border-style: solid;
+	border-right-color: $gray--light;
+	border-bottom-color: $gray--light;
+}
+
 
 /********
 
@@ -104,14 +118,13 @@ ul.sliding-puzzle {
 	
 	li.tile {
 		background: $main--light;
-		border: 2vw solid $gray--light;
-		border-right-color: $gray--dark;
-		border-bottom-color: $gray--dark;
+		border-width: 2vw;
 		cursor: pointer;
 		float: left;
 		
-		// Don't select text
 		@include user-select(none);
+		@include border-normal();
+		&:active { @include border-reverse(); }
 
 		&.blank { cursor: auto; visibility: hidden; }
 		
@@ -136,4 +149,20 @@ ul.sliding-puzzle {
 		@media screen and (min-width: $break--md) { font-size: 6.5vw; }
 		@media screen and (min-width: $break--lg) { font-size: 3.75vw; }
 	}
+}
+
+div.sliding-puzzle-options button {
+	background: $main--light;
+	border-width: 10px;
+	color: $main--dark;
+	cursor: pointer;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 18px;
+	font-weight: bold;
+	margin: 0 10px 10px 0;
+	outline: 0;
+	padding: 13px 10px;
+	
+	@include border-normal();
+	&:active { @include border-reverse(); }
 }

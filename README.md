@@ -113,3 +113,5 @@ Unlike the previous "Edit" sections, this one will also record when each mini-go
 
 - *2/22/2017, 21:10* - Created buttons will have event listeners attached to them
 - *2/22/2017, 23:37* - Fixed bug affecting how the game rendered
+- *2/23/2017, 00:20* - Added light interactive styling to buttons
+- *2/23/2017, 00:21* - **Mini-goal Complete:** 15-tile puzzle

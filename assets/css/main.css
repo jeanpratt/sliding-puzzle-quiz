@@ -72,15 +72,22 @@ ul.sliding-puzzle {
       width: 30vw; } }
   ul.sliding-puzzle li.tile {
     background: #FFFFFF;
-    border: 2vw solid #CCCCCC;
-    border-right-color: #787878;
-    border-bottom-color: #787878;
+    border-width: 2vw;
     cursor: pointer;
     float: left;
     -moz-user-select: none;
     -ms-user-select: none;
     -webkit-user-select: none;
-    user-select: none; }
+    user-select: none;
+    border-color: #CCCCCC;
+    border-style: solid;
+    border-right-color: #787878;
+    border-bottom-color: #787878; }
+    ul.sliding-puzzle li.tile:active {
+      border-color: #787878;
+      border-style: solid;
+      border-right-color: #CCCCCC;
+      border-bottom-color: #CCCCCC; }
     ul.sliding-puzzle li.tile.blank {
       cursor: auto;
       visibility: hidden; }
@@ -110,5 +117,26 @@ ul.sliding-puzzle {
     @media screen and (min-width: 1500px) {
       ul.sliding-puzzle.puzzle4x4 li.tile {
         font-size: 3.75vw; } }
+
+div.sliding-puzzle-options button {
+  background: #FFFFFF;
+  border-width: 10px;
+  color: #000000;
+  cursor: pointer;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 18px;
+  font-weight: bold;
+  margin: 0 10px 10px 0;
+  outline: 0;
+  padding: 13px 10px;
+  border-color: #CCCCCC;
+  border-style: solid;
+  border-right-color: #787878;
+  border-bottom-color: #787878; }
+  div.sliding-puzzle-options button:active {
+    border-color: #787878;
+    border-style: solid;
+    border-right-color: #CCCCCC;
+    border-bottom-color: #CCCCCC; }
 
 /*# sourceMappingURL=main.css.map */
