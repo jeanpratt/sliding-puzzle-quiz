@@ -89,8 +89,14 @@ function playGame(puzzleID, puzzleSize) {
 	
 	// Create puzzle types and generic puzzle variable
 	var puzzle3x3 = { size: 3, tiles: [1, 2, 3, 4, 5, 6, 7, 8, "B"] },
-		puzzle4x4 = { size: 3, tiles: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, "B"] },
+		puzzle4x4 = { size: 4, tiles: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, "B"] },
 		puzzle = (puzzleSize == 3) ? puzzle3x3 : puzzle4x4;
+		
+	// Create new SCSS class for puzzleBoard
+	var boardType = "puzzle" + puzzle.size + "x" + puzzle.size;
+	
+	// Update puzzleBoard classes
+	puzzleBoard.className = 'sliding-puzzle ' + boardType;
 	
 	// Add a listener for when the selected board is clicked
 	puzzleBoard.addEventListener("click", function handleClick(event) { 

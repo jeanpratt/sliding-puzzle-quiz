@@ -76,10 +76,7 @@ ul.sliding-puzzle {
     border-right-color: #787878;
     border-bottom-color: #787878;
     cursor: pointer;
-    font-size: 13vw;
-    height: 33.33333%;
     float: left;
-    width: 33.33333%;
     -moz-user-select: none;
     -ms-user-select: none;
     -webkit-user-select: none;
@@ -89,11 +86,29 @@ ul.sliding-puzzle {
       visibility: hidden; }
     @media screen and (min-width: 1000px) {
       ul.sliding-puzzle li.tile {
-        border-width: 1vw;
-        font-size: 10vw; } }
+        border-width: 1vw; } }
     @media screen and (min-width: 1500px) {
       ul.sliding-puzzle li.tile {
-        border-width: 0.75vw;
+        border-width: 0.75vw; } }
+  ul.sliding-puzzle.puzzle3x3 li.tile {
+    font-size: 13vw;
+    height: 33.33333%;
+    width: 33.33333%; }
+    @media screen and (min-width: 1000px) {
+      ul.sliding-puzzle.puzzle3x3 li.tile {
+        font-size: 10vw; } }
+    @media screen and (min-width: 1500px) {
+      ul.sliding-puzzle.puzzle3x3 li.tile {
         font-size: 6vw; } }
+  ul.sliding-puzzle.puzzle4x4 li.tile {
+    font-size: 9vw;
+    height: 25%;
+    width: 25%; }
+    @media screen and (min-width: 1000px) {
+      ul.sliding-puzzle.puzzle4x4 li.tile {
+        font-size: 6.5vw; } }
+    @media screen and (min-width: 1500px) {
+      ul.sliding-puzzle.puzzle4x4 li.tile {
+        font-size: 3.75vw; } }
 
 /*# sourceMappingURL=main.css.map */

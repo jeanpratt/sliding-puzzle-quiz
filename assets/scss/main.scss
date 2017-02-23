@@ -108,24 +108,32 @@ ul.sliding-puzzle {
 		border-right-color: $gray--dark;
 		border-bottom-color: $gray--dark;
 		cursor: pointer;
-		font-size: 13vw;
-		height: $percent--30;
 		float: left;
-		width: $percent--30;
 		
 		// Don't select text
 		@include user-select(none);
 
 		&.blank { cursor: auto; visibility: hidden; }
 		
-		@media screen and (min-width: $break--md) {
-			border-width: 1vw;
-			font-size: 10vw;
-		}
+		@media screen and (min-width: $break--md) { border-width: 1vw; }
+		@media screen and (min-width: $break--lg) { border-width: 0.75vw; }
+	}
+	
+	&.puzzle3x3 li.tile {
+		font-size: 13vw;
+		height: $percent--30;
+		width: $percent--30;
 		
-		@media screen and (min-width: $break--lg) {
-			border-width: 0.75vw;
-			font-size: 6vw;
-		}
+		@media screen and (min-width: $break--md) { font-size: 10vw; }
+		@media screen and (min-width: $break--lg) { font-size: 6vw; }
+	}
+	
+	&.puzzle4x4 li.tile {
+		font-size: 9vw;
+		height: 25%;
+		width: 25%;
+		
+		@media screen and (min-width: $break--md) { font-size: 6.5vw; }
+		@media screen and (min-width: $break--lg) { font-size: 3.75vw; }
 	}
 }
