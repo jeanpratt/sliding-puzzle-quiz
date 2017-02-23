@@ -79,9 +79,14 @@ for (i = 0; i < optionBars.length; i++) {
 ********/
 
 function playGame(puzzleID) {
-	// Select game board and create tile array
-	var puzzleBoard = document.getElementById(puzzleID),
-		puzzleTiles = { tiles: [1, 2, 3, 4, 5, 6, 7, 8, "B"] };
+	
+	// Select game board
+	var puzzleBoard = document.getElementById(puzzleID);
+	
+	// Create puzzle types
+	var puzzle3x3 = { size: 3, tiles: [1, 2, 3, 4, 5, 6, 7, 8, "B"] },
+		puzzle4x4 = { size: 3, tiles: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, "B"] },
+		puzzle = puzzle3x3;
 	
 	// Add a listener for when the selected board is clicked
 	puzzleBoard.addEventListener("click", function handleClick(event) { 
@@ -92,25 +97,23 @@ function playGame(puzzleID) {
 		
 		// Returns positional information of where the blank should go
 		function moveBlank() {
-			var up = index - 3, down = index + 3, left = index - 1, right = index + 1;
+			var up = index - puzzle.size, down = index + puzzle.size, left = index - 1, right = index + 1;
 		
-			if (index >= 3 && blankCheck(up)) { return up; }
-			if (index < 6 && blankCheck(down)) { return down; }
-			if ((index % 3) > 0 && blankCheck(left)) { return left; }
-			if ((index % 3) < 2 && blankCheck(right)) { return right; }
+			if (index >= puzzle.size && blankCheck(up)) { return up; }
+			if (index < ((puzzle.size - 1) * puzzle.size) && blankCheck(down)) { return down; }
+			if ((index % puzzle.size) > 0 && blankCheck(left)) { return left; }
+			if ((index % puzzle.size) < 2 && blankCheck(right)) { return right; }
 		}
 		
 		// Check to see if the blank tile is selected
-		function blankCheck(index) { return puzzleTiles.tiles[index] == "B"; }
+		function blankCheck(index) { return puzzle.tiles[index] == "B"; }
 		
 		// Swaps the blank tile with a number tile
 		function swapTile(index1, index2) {
-			var position = puzzleTiles.tiles[index1];
+			var position = puzzle.tiles[index1];
 			
-			puzzleTiles.tiles[index1] = puzzleTiles.tiles[index2];
-			puzzleTiles.tiles[index2] = position;
-			
-			console.log(puzzleTiles.tiles[index1], puzzleTiles.tiles[index2]);
+			puzzle.tiles[index1] = puzzle.tiles[index2];
+			puzzle.tiles[index2] = position;
 		}
 		
 		// Ignore clicks not on tiles
@@ -123,7 +126,7 @@ function playGame(puzzleID) {
 		// If passes checks, swap tile
 		swapTile(index, blank);
 		// Once tile is swapped, set the board
-		setBoard(puzzleBoard, puzzleTiles);
+		setBoard(puzzleBoard, puzzle);
 	});
 	
 	// Sets the board on load and resets when tile is swapped
@@ -139,5 +142,5 @@ function playGame(puzzleID) {
 	}
 	
 	// Set the board on page load
-	setBoard(puzzleBoard, puzzleTiles);
+	setBoard(puzzleBoard, puzzle);
 }
