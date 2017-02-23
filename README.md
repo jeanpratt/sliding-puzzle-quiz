@@ -100,15 +100,27 @@ Although optional, it was strongly advised to complete some of the "extra point"
 
 First, I'll make my game be more versatile - players will be able to choose either a 3x3 or 4x4 format for playing the puzzle. When I created the game's logic, it was done in a way that allowed for the ability to create different formats. Thus, with a bit of DOM manipulation and minor code editing, I can achieve this goal.
 
-1. Create a new branch to test the new feature
+1. Create a new branch to house extra additions
 2. Code necessary utility functions for DOM manipulation
 3. Dynamically add an 'options' bar for players to choose a game mode
 4. Build two simple objects for separate game formats
 5. Replace hard-coded dimensions for the puzzle-board with an object parameter
 6. Incorporate SCSS changes for adapting to either format
 
+After creating different formats for the puzzle, I'll now add a way to scramble the order of 
+the tiles through the console. Once the function for scrambling has been completed, a parameter to `playGame();` will allow a user to do so.
+
+1. Build scramble function
+2. Add parameter to `playGame();`
+3. Incoporate parameter upon page load and button call
+
 ### Edits
 
 Unlike the previous "Edit" sections, this one will also record when each mini-goal was completed.
 
-*No edits at this time.*
+- *2/22/2017, 21:10* - Created buttons will have event listeners attached to them
+- *2/22/2017, 23:37* - Fixed bug affecting how the game rendered
+- *2/23/2017, 00:20* - Added light interactive styling to buttons
+- *2/23/2017, 00:21* - **Mini-goal Complete:** 15-tile puzzle
+- *2/23/2017, 02:16* - Shown puzzle can now be shuffled by entering `playGame('sliding-puzzle-1', 3, true);` into the console
+- *2/23/2017, 02:16* - **Mini-goal Complete:** Shuffle mechanic

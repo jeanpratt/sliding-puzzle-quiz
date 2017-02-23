@@ -5,7 +5,7 @@
 	Project:	Sliding Puzzle Quiz (Swirl)
 	
 	Table of Contents:
-		1. @Game Board
+		1. @Game Features
 		2. @Game Logic
 	
 ********/
@@ -13,24 +13,25 @@
 
 /********
 
-	@Game Board
+	@Game Features
 	
 ********/
 
-// Get puzzle
-var puzzles = document.getElementsByClassName('sliding-puzzle');
+function setGame() {
+	// Get puzzle
+	var puzzles = document.getElementsByClassName('sliding-puzzle');
 
-// In case there are multiple puzzles
-for (i = 0; i < puzzles.length; i++) {
-	
-	// Set ID of current puzzle
-	puzzleID = "sliding-puzzle-" + (i + 1);
-	puzzles[i].setAttribute("id", puzzleID);
-	
-	// Set game state for current puzzle
-	playGame(puzzleID);
+	// In case there are multiple puzzles
+	for (var i = 0; i < puzzles.length; i++) {
+		
+		// Set ID of current puzzle
+		var puzzleID = "sliding-puzzle-" + (i + 1);
+		puzzles[i].setAttribute("id", puzzleID);
+		
+		// Set game state for current puzzle
+		playGame(puzzleID);
+	}
 }
-
 
 /********
 
@@ -69,8 +70,6 @@ function playGame(puzzleID) {
 			
 			puzzleTiles.tiles[index1] = puzzleTiles.tiles[index2];
 			puzzleTiles.tiles[index2] = position;
-			
-			console.log(puzzleTiles.tiles[index1], puzzleTiles.tiles[index2]);
 		}
 		
 		// Ignore clicks not on tiles
@@ -101,3 +100,5 @@ function playGame(puzzleID) {
 	// Set the board on page load
 	setBoard(puzzleBoard, puzzleTiles);
 }
+
+setGame();
